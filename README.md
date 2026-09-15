@@ -1,80 +1,47 @@
 # PDF Batch Automation
 
-A PowerShell automation tool designed to simplify repetitive document-processing workflows by automatically identifying, validating, merging, and renaming documents in batch.
+A PowerShell automation tool developed to simplify a repetitive document-processing workflow.
 
-The application provides a graphical interface that allows users to select a root folder, review eligible report folders, choose which folders to process, and automatically generate the final PDF documents.
-
----
-
-## Overview
-
-Processing multiple reports manually can involve several repetitive operations:
-
-1. Navigating through multiple folders.
-2. Identifying the correct documents.
-3. Checking that all required files are present.
-4. Converting and combining documents into a single PDF.
-5. Renaming the resulting PDF.
-6. Repeating the same process for each report.
-
-This project automates this workflow using **PowerShell** and a **Windows Forms graphical interface**.
-
-Instead of processing each folder individually, the application scans the selected directory recursively, identifies folders matching the expected report structure, validates their contents, and allows the user to process multiple folders in a single operation.
-
----
+The application provides a Windows Forms GUI that allows users to select a root folder, automatically identify valid report folders, select multiple reports, and process them in batch.
 
 ## Features
 
-- 📁 **Root folder selection**
-  - Allows the user to select the directory from which the search should start.
+- 🔎 Recursive search for report folders
+- ✅ Automatic validation of required documents
+- 🖥️ Windows Forms graphical interface
+- ☑️ Multiple folder selection
+- 📄 Automated PDF document merging
+- 📝 Automatic PDF renaming
+- 📊 Final processing summary
 
-- 🔎 **Recursive folder search**
-  - Automatically searches through subdirectories for folders matching the expected report naming pattern.
-  - Supports variations of the report folder name, including singular/plural and accented versions.
+## How It Works
 
-- ✅ **Automatic document validation**
-  - Each detected report folder is checked for the required documents:
-    - Excel files (`.xls` / `.xlsx`)
-    - PDF files containing `ANEXO` in the filename
-    - PowerPoint files (`.ppt` / `.pptx`)
+1. Select a root folder.
+2. The application searches recursively for report folders.
+3. Each folder is checked for the required Excel, PDF and PowerPoint files.
+4. Valid folders are automatically selected.
+5. Choose which folders to process.
+6. The application launches Wondershare PDFelement and merges the documents.
+7. The resulting PDF is automatically renamed.
 
-- 🖥️ **Graphical User Interface**
-  - Uses Windows Forms to provide a simple graphical interface.
-  - Displays detected report folders in a checklist.
-  - Valid folders are automatically selected.
+## Technologies
 
-- ☑️ **Batch selection**
-  - Select or deselect individual folders.
-  - Includes "Select All" and "Deselect All" functionality.
+- PowerShell
+- Windows Forms
+- .NET
+- Windows API
+- Wondershare PDFelement
 
-- ⚙️ **Automated PDF processing**
-  - Launches Wondershare PDFelement to combine the required documents.
-  - Processes multiple folders sequentially.
+## Why I Built It
 
-- ⏳ **Process monitoring**
-  - Waits for PDFelement to become available.
-  - Brings the application window to the foreground when necessary.
-  - Waits for the generated combined PDF before continuing.
+I developed this tool to automate a repetitive document-processing task encountered in a professional environment.
 
-- 📝 **Automatic file naming**
-  - The resulting PDF is renamed using the filename of the corresponding Excel document.
+The goal was to reduce manual operations and make batch processing faster and less error-prone.
 
-- 📊 **Processing summary**
-  - Displays the number of folders successfully processed when the operation is complete.
+## Author
 
----
+**Nominoë**  
+Junior Full-Stack Developer
 
-## Workflow
+GitHub: [@Nominoe-dev](https://github.com/Nominoe-dev)
 
-The application follows four main stages.
-
-### 1. Select the root folder
-
-When the application starts, the user is prompted to select a root directory.
-
-```text
-Root Folder
-    │
-    ├── Folder A
-    ├── Folder B
-    └── ...
